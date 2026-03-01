@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --cherry: #4A000C;
+  --cherry-deep: #2E0007;
+  --cherry-muted: #6B1020;
+  --rose: #B8696E;
+  --rose-light: #D4989C;
+  --rose-faint: #E8C4C7;
+  --nude: #EDE0CC;
+  --nude-warm: #F5EFE4;
+  --nude-deep: #D6C5A8;
+  --nude-dark: #C4AF8E;
+  --text-primary: #2A0008;
+  --text-secondary: #6B3040;
+  --text-muted: #9C7070;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', 'Helvetica Neue', sans-serif;
+  --shadow-soft: 0 4px 24px rgba(74, 0, 12, 0.08);
+  --shadow-medium: 0 8px 40px rgba(74, 0, 12, 0.14);
+  --shadow-strong: 0 16px 64px rgba(74, 0, 12, 0.22);
+  --radius-sm: 4px;
+  --radius-md: 10px;
+  --radius-lg: 20px;
+  --radius-pill: 100px;
+  --transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--nude);
+  background-image:
+    radial-gradient(ellipse 80% 60% at 20% 0%, rgba(184, 105, 110, 0.10) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 85% 100%, rgba(74, 0, 12, 0.07) 0%, transparent 55%);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  color: var(--cherry);
+  line-height: 1.25;
+  margin-top: 0;
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 800; }
+h2 { font-size: clamp(1.7rem, 3.5vw, 2.8rem); font-weight: 600; }
+h3 { font-size: clamp(1.3rem, 2.5vw, 1.9rem); font-weight: 600; }
+h4 { font-size: 1.2rem; font-weight: 500; }
+
+p {
+  margin: 0 0 1.25rem;
+  color: var(--text-secondary);
+}
+
+a {
+  color: var(--cherry-muted);
+  text-decoration: underline;
+  text-decoration-color: var(--rose-faint);
+  text-underline-offset: 3px;
+  transition: color var(--transition), text-decoration-color var(--transition);
+}
+
+a:hover {
+  color: var(--cherry);
+  text-decoration-color: var(--rose);
+}
+
+code, pre {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+  font-size: 0.9em;
+  background: rgba(74, 0, 12, 0.05);
+  border: 1px solid var(--nude-deep);
+  border-radius: var(--radius-sm);
+}
+
+code {
+  padding: 0.15em 0.45em;
+}
+
+pre {
+  padding: 1.25rem 1.5rem;
+  overflow-x: auto;
+  line-height: 1.6;
+}
+
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+button,
+[type="button"],
+[type="submit"] {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 0.75rem 2rem;
+  background: var(--cherry);
+  color: var(--nude-warm);
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+  box-shadow: var(--shadow-soft);
+}
+
+button:hover {
+  background: var(--cherry-muted);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+input, textarea, select {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 300;
+  background: var(--nude-warm);
+  border: 1.5px solid var(--nude-dark);
+  border-radius: var(--radius-md);
+  padding: 0.7rem 1.1rem;
+  color: var(--text-primary);
+  transition: border-color var(--transition), box-shadow var(--transition);
+  outline: none;
+  width: 100%;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--rose);
+  box-shadow: 0 0 0 3px rgba(184, 105, 110, 0.18);
+}
+
+::selection {
+  background: var(--rose-light);
+  color: var(--cherry-deep);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--nude);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--nude-dark);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--rose);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--nude-deep);
+  margin: 2rem 0;
+}

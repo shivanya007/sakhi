@@ -1,0 +1,233 @@
+/* =============================================
+   App.css — Cherry, Rose Smoke & Nude Palette
+   ============================================= */
+
+.App {
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Header ── */
+.App-header {
+  background: var(--cherry-deep);
+  background-image:
+    radial-gradient(ellipse 120% 80% at 50% -20%, var(--cherry-muted) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 110%, rgba(184, 105, 110, 0.25) 0%, transparent 50%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 3rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative grain overlay */
+.App-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+/* Decorative circle accent */
+.App-header::after {
+  content: '';
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  border: 1px solid rgba(184, 105, 110, 0.18);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* ── Logo ── */
+.App-logo {
+  height: 36vmin;
+  max-height: 200px;
+  pointer-events: none;
+  filter: drop-shadow(0 8px 32px rgba(184, 105, 110, 0.4));
+  position: relative;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: logo-float 6s ease-in-out infinite;
+  }
+}
+
+@keyframes logo-float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33%       { transform: translateY(-10px) rotate(1deg); }
+  66%       { transform: translateY(-5px) rotate(-0.5deg); }
+}
+
+/* ── Header text ── */
+.App-header h1,
+.App-header h2,
+.App-header p {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+}
+
+.App-header h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 6vw, 4rem);
+  font-weight: 800;
+  font-style: italic;
+  color: var(--nude-warm);
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 30px rgba(74, 0, 12, 0.5);
+}
+
+.App-header p {
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  color: var(--rose-light);
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ── Link ── */
+.App-link {
+  position: relative;
+  z-index: 1;
+  color: var(--rose-light);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.6rem 1.6rem;
+  border: 1px solid rgba(184, 105, 110, 0.45);
+  border-radius: var(--radius-pill);
+  backdrop-filter: blur(8px);
+  background: rgba(184, 105, 110, 0.1);
+  transition: color var(--transition), background var(--transition), border-color var(--transition), transform var(--transition);
+}
+
+.App-link:hover {
+  color: var(--nude-warm);
+  background: rgba(184, 105, 110, 0.25);
+  border-color: var(--rose);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+/* ── Main content area ── */
+.App-main {
+  flex: 1;
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ── Cards ── */
+.card {
+  background: var(--nude-warm);
+  border: 1px solid var(--nude-deep);
+  border-radius: var(--radius-lg);
+  padding: 2rem 2.25rem;
+  box-shadow: var(--shadow-soft);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-medium);
+}
+
+.card-accent {
+  background: var(--cherry);
+  color: var(--nude-warm);
+  border-color: var(--cherry-muted);
+}
+
+.card-accent h2,
+.card-accent h3,
+.card-accent p {
+  color: inherit;
+}
+
+/* ── Pill / badge ── */
+.badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.85rem;
+  border-radius: var(--radius-pill);
+  background: var(--rose-faint);
+  color: var(--cherry-muted);
+}
+
+.badge-cherry {
+  background: var(--cherry);
+  color: var(--nude-warm);
+}
+
+/* ── Divider with ornament ── */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 3rem 0;
+  color: var(--nude-dark);
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--nude-deep), transparent);
+}
+
+/* ── Utility classes ── */
+.text-cherry  { color: var(--cherry); }
+.text-rose    { color: var(--rose); }
+.text-muted   { color: var(--text-muted); }
+
+.bg-cherry    { background-color: var(--cherry); color: var(--nude-warm); }
+.bg-rose      { background-color: var(--rose);   color: var(--nude-warm); }
+.bg-nude      { background-color: var(--nude); }
+.bg-nude-warm { background-color: var(--nude-warm); }
+
+.serif { font-family: var(--font-display); }
+.italic { font-style: italic; }
+
+/* ── Fade-in entrance animation ── */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  animation: fade-up 0.7s var(--transition) both;
+}
+
+.fade-up-delay-1 { animation-delay: 0.1s; }
+.fade-up-delay-2 { animation-delay: 0.2s; }
+.fade-up-delay-3 { animation-delay: 0.35s; }
